@@ -109,6 +109,11 @@
           "rot": "Terminal · you check it, without trusting the summary",
           "icone": "check",
           "conteudo": "cd ~/ensaio-loop/conta\npython3 -m pytest -q -p no:cacheprovider tests/ | tail -1\nsha256sum -c tests.sha256\ngit diff --exit-code -- tests/; echo \"rc=$?\""
+        },
+        {
+          "rot": "loop-codex.sh · the same loop with codex exec (exercise 3)",
+          "icone": "voltar",
+          "conteudo": "#!/usr/bin/env bash\n# Your own loop: at most 3 cycles of codex exec; the three commands decide when to stop.\nset -u\ncd ~/ensaio-loop/conta\npasses() {\n  python3 -m pytest -q -p no:cacheprovider tests/ 2>&1 | tail -1 | grep -q '^6 passed' &&\n  sha256sum -c --quiet tests.sha256 &&\n  git diff --quiet -- tests/\n}\nfor ciclo in 1 2 3; do\n  if passes; then echo \"PRONTO no ciclo $((ciclo - 1))\"; exit 0; fi\n  echo \"ciclo $ciclo: codex exec\"\n  timeout 15m codex exec --sandbox workspace-write \\\n    \"Crie conta.py com conta_palavras(texto) que faça os testes de tests/ passarem. Não altere nada em tests/.\"\ndone\nif passes; then echo \"PRONTO no ciclo 3\"; exit 0; fi\necho \"PARADO: teto de 3 ciclos\"; exit 2"
         }
       ],
       "saida": {
@@ -152,7 +157,7 @@
           "id": "e3",
           "titulo": "E3 · The same loop with Codex",
           "min": "15 min",
-          "texto": "Delete conta.py and run the same request through codex exec with a write sandbox, in a loop of your own of at most 3 cycles that stops when the three commands pass.",
+          "texto": "Delete conta.py and run the same request through codex exec with a write sandbox, using the loop-codex.sh from the block above: at most 3 cycles, stopping when the three commands pass.",
           "pronto": "Your loop ends before the 3rd cycle, and the same three commands give <code>6 passed</code>, <code>OK</code> and <code>rc=0</code>; <code>git diff --stat -- tests/</code> comes out empty."
         }
       ]
