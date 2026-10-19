@@ -242,12 +242,12 @@
         {
           "p": "¿Por qué LOOP-R usa nueve agentes en vez de un agente que hace y revisa?",
           "opcoes": [
-            "Porque nueve agentes son más rápidos",
-            "Porque la separación impide que un agente único se convenza de que mejoró",
-            "Porque cada modelo solo aguanta una tarea",
-            "Porque Claude Code lo exige"
+            "Porque nueve agentes en paralelo terminan el ciclo más rápido",
+            "Porque Claude Code exige un agente por función",
+            "Porque separar impide que un agente se convenza de que mejoró",
+            "Porque cada modelo solo aguanta una tarea a la vez sin perderse"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "El doc 04 dice: cada uno lee solo lo que el contrato lista y rechaza lo que está en \"nunca\". El agente que evalúa su propio trabajo tiende a aprobarlo; separar funciones es la verificación incorporada en el diseño.",
           "ref": "diagrama",
           "cert": true
@@ -255,34 +255,34 @@
         {
           "p": "B subió la métrica objetivo con margen significativo, pero empeoró un límite que no puede empeorar (guardarraíl) más allá de la tolerancia. ¿Cuál es el veredicto del Evaluador?",
           "opcoes": [
-            "B_GANHOU",
             "A_SEGUE",
             "AMOSTRA_INSUFICIENTE",
-            "Depende del humano"
+            "Depende del humano",
+            "B_GANHOU"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "B solo gana si el objetivo sube Y ningún límite que no puede empeorar cae más allá de la tolerancia. Fue el caso del ciclo 0002 del ejemplo.",
           "ref": "passos"
         },
         {
           "p": "¿Qué agente tiene una decisión que nadie revisa dentro del ciclo?",
           "opcoes": [
-            "Evaluador",
-            "Meta-agente",
             "Guardián",
-            "Crítico"
+            "Evaluador",
+            "Crítico",
+            "Meta-agente"
           ],
-          "certa": 2,
+          "certa": 0,
           "explica": "El veto del Guardián es final, no negocia y ante la duda veta. El Meta-agente, al contrario, no decide nada en las versiones actuales: solo informa.",
           "ref": "codigo"
         },
         {
           "p": "¿Qué demuestra el ejemplo vendas-whatsapp?",
           "opcoes": [
-            "Que LOOP-R aumenta las ventas",
-            "Que el mecanismo corre de punta a punta con agentes reales, sobre datos sintéticos y decisiones simuladas",
-            "Que 300 ejecuciones bastan siempre",
-            "Nada: es solo documentación"
+            "Que LOOP-R aumenta las ventas de una tienda real en WhatsApp",
+            "Que el mecanismo corre con agentes reales, sobre datos sintéticos",
+            "Nada: es solo documentación, los agentes no corrieron de verdad",
+            "Que 300 ejecuciones bastan para que cualquier loop llegue a un veredicto confiable"
           ],
           "certa": 1,
           "explica": "Los agentes corrieron de verdad; los datos se generaron y las aprobaciones fueron simuladas. Sirve para leer el mecanismo, no como prueba de una ganancia real.",

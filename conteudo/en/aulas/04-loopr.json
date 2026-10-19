@@ -242,12 +242,12 @@
         {
           "p": "Why does LOOP-R use nine agents instead of one agent that does and checks?",
           "opcoes": [
-            "Because nine agents are faster",
-            "Because the separation stops a single agent from convincing itself it improved",
-            "Because each model can only handle one task",
-            "Because Claude Code requires it"
+            "Because nine agents in parallel finish the cycle faster",
+            "Because Claude Code requires one agent per role",
+            "Because separating them keeps an agent from convincing itself it improved",
+            "Because each model can only handle one task at a time without getting lost"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Doc 04 says: each one reads only what the contract lists and refuses what is under \"nunca\". An agent that evaluates its own work tends to approve it; separating roles is the verification built into the design.",
           "ref": "diagrama",
           "cert": true
@@ -255,34 +255,34 @@
         {
           "p": "B raised the target metric by a significant margin, but worsened a guardrail beyond the tolerance. What is the Evaluator's verdict?",
           "opcoes": [
-            "B_GANHOU",
             "A_SEGUE",
             "AMOSTRA_INSUFICIENTE",
-            "It depends on the human"
+            "It depends on the human",
+            "B_GANHOU"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "B only wins with the target going up AND no guardrail dropping beyond the tolerance. That was the case in cycle 0002 of the example.",
           "ref": "passos"
         },
         {
           "p": "Which agent has a decision that nobody reviews within the cycle?",
           "opcoes": [
-            "Evaluator",
-            "Meta-agent",
             "Guardian",
-            "Critic"
+            "Evaluator",
+            "Critic",
+            "Meta-agent"
           ],
-          "certa": 2,
+          "certa": 0,
           "explica": "The Guardian's veto is final, it doesn't negotiate and vetoes when in doubt. The Meta-agent, by contrast, decides nothing in the current versions: it only reports.",
           "ref": "codigo"
         },
         {
           "p": "What does the vendas-whatsapp example prove?",
           "opcoes": [
-            "That LOOP-R increases sales",
-            "That the mechanism runs end to end with real agents, on synthetic data and simulated decisions",
-            "That 300 runs are always enough",
-            "Nothing: it's just documentation"
+            "That LOOP-R increases the sales of a real WhatsApp store",
+            "That the mechanism runs with real agents, on synthetic data",
+            "Nothing: it's just documentation, the agents didn't actually run",
+            "That 300 runs are enough for any loop to reach a reliable verdict"
           ],
           "certa": 1,
           "explica": "The agents really ran; the data was generated and the approvals were simulated. Use it to read the mechanism, not as proof of real gain.",

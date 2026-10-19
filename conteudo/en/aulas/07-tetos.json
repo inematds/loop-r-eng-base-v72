@@ -330,12 +330,12 @@
         {
           "p": "The loop has MAX_CICLOS=50 and a level 3 criterion. The tests have been at 41 of 48 for 4 cycles. Which cap should have stopped it?",
           "opcoes": [
-            "Turns",
-            "Time",
+            "Memory",
             "Stagnation",
-            "Memory"
+            "Turns",
+            "Time"
           ],
-          "certa": 2,
+          "certa": 1,
           "explica": "Turns has not hit yet (50). What catches the agent stuck in the same place is the count of cycles without measured progress. Without it, the remaining 46 cycles spin for nothing.",
           "ref": "diagrama",
           "cert": true
@@ -343,24 +343,24 @@
         {
           "p": "timeout 20m codex exec … finished with exit code 124. What happened?",
           "opcoes": [
-            "The agent finished successfully",
             "The 20-minute deadline ran out and the command was killed",
-            "It ran out of memory",
-            "The test failed"
+            "The agent finished successfully and the timeout only recorded the time",
+            "It ran out of memory and the system killed the process",
+            "The test failed and codex exec returned an error"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "124 is the code timeout returns when it kills the command for the deadline. 137 is the code for a process killed by a signal, as with the memory cap.",
           "ref": "codigo"
         },
         {
           "p": "The agent is within all the caps and wants to push to the production branch to finish the task. What should you do?",
           "opcoes": [
-            "Let it: it is within the cap",
             "Stop and ask for human approval: it is an external, irreversible action",
+            "Tell it to push with --force",
             "Raise the cost cap",
-            "Tell it to push with --force"
+            "Let it: it is within the cap"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "A cap limits how much the loop spends; it does not limit what it does. Pushing to production, e-mail, deleting data, and paid spending always stop at the human gate.",
           "ref": "passos",
           "cert": true
@@ -368,12 +368,12 @@
         {
           "p": "In the simulated conversation, why is \"raise MAX_CICLOS to 30\" the weak choice?",
           "opcoes": [
-            "Because 30 is too few",
-            "Because the agent already showed a fixture is missing: more cycles won't create the missing piece",
-            "Because the time cap was about to blow",
-            "Because MAX_CICLOS doesn't exist"
+            "Because the time cap would blow well before the 30 cycles ran out",
+            "Because MAX_CICLOS doesn't exist in this loop",
+            "Because a fixture is missing: more cycles don't create the missing piece",
+            "Because 30 is too few: the right move would be to jump to 100 at once"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Stagnation is information: something is missing. The useful answer is to fix the cause and come back with a new cap, not to buy more spins.",
           "ref": "simconversa"
         }

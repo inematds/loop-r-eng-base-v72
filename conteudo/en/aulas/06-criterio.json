@@ -203,10 +203,10 @@
         {
           "p": "\"python3 -m pytest -q prints 0 failed\". What level is it?",
           "opcoes": [
-            "1 · subjective",
-            "2 · gameable",
             "3 · protected",
-            "4 · independent"
+            "2 · gameable",
+            "4 · independent",
+            "1 · subjective"
           ],
           "certa": 1,
           "explica": "It has a command, but deleting the tests also gives 0 failed. The lock is missing: minimum count and untouched tests. The common mistake is thinking a command is already level 3.",
@@ -216,34 +216,34 @@
         {
           "p": "Which of the 5 questions knocks down \"the agent confirms it reviewed everything\"?",
           "opcoes": [
+            "Only 4",
+            "None: if the agent confirms in writing, it's already level 3",
             "Only 5",
-            "1: it can't be checked with a command, and 3: it can be met without doing the work",
-            "None: it's level 3",
-            "Only 4"
+            "Q1: no command exists; Q3: can be met without doing it"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "There is no command, the answer depends on the agent saying it finished (a sign of a bad criterion), and it can say so without having done it. Level 1.",
           "ref": "codigo"
         },
         {
           "p": "Why does question 4 (\"does the proof show up in the output?\") matter in Claude Code's /goal?",
           "opcoes": [
-            "Because the output looks nicer",
-            "Because the evaluator only reads the conversation: if the result wasn't printed, it judges by the agent's word",
-            "Because /goal runs the tests on its own",
-            "It doesn't matter"
+            "Because the printed output makes the log easier to review later",
+            "Because /goal runs the tests itself and needs to see the output",
+            "Because the evaluator only reads the conversation, it runs nothing",
+            "It doesn't matter: /goal checks the files at the end"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "According to the docs, the evaluator doesn't run commands or read files. The proof has to be printed in the conversation. Course 1 goes deeper.",
           "ref": "codigo"
         },
         {
           "p": "A criterion covers function and regression, but says nothing about files that could not change. What is missing?",
           "opcoes": [
-            "Nothing",
-            "The limit layer, for example git diff --exit-code -- tests/ or another protected folder",
-            "A better model",
-            "More function tests"
+            "Nothing: function and regression already cover what matters",
+            "The limit layer, like git diff --exit-code -- tests/",
+            "More function tests, covering the edge cases that were missed",
+            "A better model that doesn't touch what it shouldn't"
           ],
           "certa": 1,
           "explica": "Function, regression and limit: without a limit, the agent can meet the rest by touching where it shouldn't. \"Doesn't say what must NOT change\" is among the signs of a bad criterion.",

@@ -198,30 +198,30 @@
       "perguntas": [
         {
           "p": "O agente terminou dizendo \"implementei e está tudo funcionando\", mas nenhum teste aparece na saída. Qual peça faltou?",
-          "opcoes": ["Objetivo", "Estado", "Verificação", "Ação"],
-          "certa": 2,
+          "opcoes": ["Objetivo", "Estado", "Ação", "Verificação"],
+          "certa": 3,
           "explica": "Havia objetivo e ação; faltou um comando que provasse. Sem verificação, quem decide que acabou é a opinião do agente. O erro comum é culpar o objetivo: ele pode estar claro e mesmo assim ninguém conferir.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "No loop de brinquedo, por que a segunda rodada não acrescenta a 6ª linha?",
-          "opcoes": ["Porque o bash lembra da rodada anterior", "Porque a verificação roda antes da ação e o estado está em arquivo", "Porque MAX_CICLOS é 8", "Porque saida.txt é apagado no início"],
-          "certa": 1,
+          "opcoes": ["Porque MAX_CICLOS é 8 e o loop para antes da 6ª linha", "Porque o bash lembra da rodada anterior e pula o que já fez", "Porque saida.txt é apagado no início de cada rodada", "Porque confere antes de agir e o estado fica em arquivo"],
+          "certa": 3,
           "explica": "O script relê estado.txt e saida.txt, confere primeiro e só age se faltar. O processo do bash não guarda nada entre rodadas: a memória é o arquivo. Se a verificação viesse depois da ação, a segunda rodada escreveria uma linha a mais antes de perceber.",
           "ref": "codigo"
         },
         {
           "p": "Um loop tem objetivo verificável, estado em arquivo e teste por ciclo, mas nenhum teto. O que pode dar errado?",
-          "opcoes": ["Nada: se o teste é bom, ele sempre termina", "Girar indefinidamente quando o objetivo é impossível ou o agente empaca", "Ele vai se aprovar sozinho", "Ele perde o estado"],
-          "certa": 1,
+          "opcoes": ["Ele vai se aprovar sozinho, mesmo com o teste falhando", "Ele perde o estado entre um ciclo e outro", "Girar sem fim se o objetivo é impossível ou o agente empaca", "Nada: se o teste é bom, o loop sempre termina sozinho quando passa"],
+          "certa": 2,
           "explica": "Teste bom garante que ele não sai antes da hora, não que ele saia. Objetivo impossível ou agente preso no mesmo erro só param por teto: ciclos, tempo, memória, estagnação ou custo.",
           "ref": "diagrama"
         },
         {
           "p": "Qual objetivo está pronto para virar loop?",
-          "opcoes": ["Melhorar a qualidade do módulo de login", "Deixar o código mais limpo", "python3 -m pytest -q tests/auth imprime 0 failed e o número de testes não diminui", "Revisar tudo com cuidado"],
-          "certa": 2,
+          "opcoes": ["Deixar o código mais limpo", "Revisar tudo com cuidado", "Melhorar a qualidade do módulo de login", "python3 -m pytest -q tests/auth imprime 0 failed e o número de testes não diminui"],
+          "certa": 3,
           "explica": "É o único com um fim que um comando confere. Os outros não terminam ou dependem de opinião. A escala completa, com o que torna um critério à prova de atalho, está na aula 6.",
           "ref": "passos",
           "cert": true

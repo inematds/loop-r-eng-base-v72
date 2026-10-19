@@ -230,11 +230,11 @@
           "p": "Después de una compactación, el resumen dice \"f3 concluído\", pero features.json muestra f3 con passes: false y no hay commit de f3. ¿Qué vale?",
           "opcoes": [
             "El resumen, que es más reciente",
+            "Marcar f3 como true para no perder tiempo",
             "El archivo y git: f3 está pendiente",
-            "Preguntarle al modelo si lo recuerda",
-            "Marcar f3 como true para no perder tiempo"
+            "Preguntarle al modelo si lo recuerda"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "El resumen mezcla lo confirmado con la suposición. Lo que tiene prueba es lo que está en el archivo con commit. Marcar sin verificar es exactamente el atajo que la lista existe para impedir.",
           "ref": "diagrama",
           "cert": true
@@ -242,12 +242,12 @@
         {
           "p": "¿Por qué el post de harness de Anthropic guarda la lista de ítems en JSON y no en Markdown?",
           "opcoes": [
-            "Porque JSON se lee más rápido",
             "Porque el modelo sobrescribe JSON menos que Markdown",
-            "Porque Claude Code solo lee JSON",
-            "Porque Markdown no tiene campos"
+            "Porque JSON es más rápido de leer y ocupa menos contexto",
+            "Porque Markdown no tiene campos para marcar lo que pasó",
+            "Porque Claude Code solo lee archivos de estado en JSON"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Es la razón que da el propio post: con JSON el modelo tiende a cambiar solo el campo passes, en lugar de reescribir la lista. Las sesiones siguientes solo pueden cambiar ese campo.",
           "ref": "diagrama"
         },
@@ -255,23 +255,23 @@
           "p": "¿Cuál es la ventaja de un commit por ítem en lugar de un commit al final?",
           "opcoes": [
             "Ninguna, solo ensucia el historial",
-            "Cada ítem verificado se vuelve un punto de reanudación y se puede deshacer por separado",
             "Git se vuelve más rápido",
-            "El modelo lee mejor los commits pequeños"
+            "El modelo lee mejor los commits pequeños",
+            "Cada ítem verificado se vuelve un punto de reanudación y se puede deshacer por separado"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "Si la sesión se cae, lo que fue verificado queda guardado; si un ítem salió mal, git revert deshace solo ese. Un commit al final lo pierde todo en una caída y mezcla aciertos con errores.",
           "ref": "codigo"
         },
         {
           "p": "En la simulación, la sesión se cayó en medio de un ítem. ¿Qué pasa con él al reanudar?",
           "opcoes": [
-            "Se marca como hecho",
+            "Se descarta y sale de la lista de ítems",
+            "Pasa a falló y exige revisión humana",
             "Vuelve a pendientes, porque no tiene commit",
-            "Se descarta",
-            "Va a falhou"
+            "Se marca como hecho, porque ya había empezado"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Sin verificación y sin commit, no hay prueba de que terminó: vuelve a pendientes y se rehace. Lo que ya tiene commit no se rehace.",
           "ref": "simfila",
           "cert": true

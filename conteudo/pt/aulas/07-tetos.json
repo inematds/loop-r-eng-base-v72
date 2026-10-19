@@ -247,31 +247,31 @@
       "perguntas": [
         {
           "p": "O loop tem MAX_CICLOS=50 e critério nível 3. Os testes estão em 41 de 48 há 4 ciclos. Qual teto deveria ter parado?",
-          "opcoes": ["Turnos", "Tempo", "Estagnação", "Memória"],
-          "certa": 2,
+          "opcoes": ["Memória", "Estagnação", "Turnos", "Tempo"],
+          "certa": 1,
           "explica": "Turnos ainda não bateu (50). Quem pega o agente preso no mesmo lugar é a contagem de ciclos sem avanço medido. Sem ela, os 46 ciclos restantes giram à toa.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "timeout 20m codex exec … terminou com código 124. O que aconteceu?",
-          "opcoes": ["O agente terminou com sucesso", "O prazo de 20 minutos acabou e o comando foi morto", "Faltou memória", "O teste falhou"],
-          "certa": 1,
+          "opcoes": ["O prazo de 20 minutos acabou e o comando foi morto", "O agente terminou com sucesso e o timeout só registrou o tempo", "Faltou memória e o sistema matou o processo", "O teste falhou e o codex exec devolveu erro"],
+          "certa": 0,
           "explica": "124 é o código que o timeout devolve quando mata o comando por prazo. 137 é o de processo morto por sinal, como no teto de memória.",
           "ref": "codigo"
         },
         {
           "p": "O agente está dentro de todos os tetos e quer fazer push na branch de produção para terminar a tarefa. O que fazer?",
-          "opcoes": ["Deixar: está dentro do teto", "Parar e pedir aprovação humana: é ação externa e irreversível", "Aumentar o teto de custo", "Mandar fazer o push com --force"],
-          "certa": 1,
+          "opcoes": ["Parar e pedir aprovação humana: é ação externa e irreversível", "Mandar fazer o push com --force", "Aumentar o teto de custo", "Deixar: está dentro do teto"],
+          "certa": 0,
           "explica": "Teto limita quanto o loop gasta; não limita o quê ele faz. Push em produção, e-mail, apagar dados e gasto pago sempre param no portão humano.",
           "ref": "passos",
           "cert": true
         },
         {
           "p": "Na conversa simulada, por que \"aumente o MAX_CICLOS para 30\" é a escolha fraca?",
-          "opcoes": ["Porque 30 é pouco", "Porque o agente já mostrou que falta um fixture: mais ciclos não criam a peça que falta", "Porque o teto de tempo ia estourar", "Porque o MAX_CICLOS não existe"],
-          "certa": 1,
+          "opcoes": ["Porque o teto de tempo ia estourar bem antes dos 30 ciclos acabarem", "Porque o MAX_CICLOS não existe nesse loop", "Porque falta um fixture: mais ciclos não criam a peça que falta", "Porque 30 é pouco: o certo seria subir para 100 de uma vez"],
+          "certa": 2,
           "explica": "Estagnação é informação: algo está faltando. A resposta útil é corrigir a causa e voltar com teto novo, não comprar mais giros.",
           "ref": "simconversa"
         }

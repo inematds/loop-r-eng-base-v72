@@ -246,10 +246,10 @@
           "opcoes": [
             "Objetivo",
             "Estado",
-            "Verificación",
-            "Acción"
+            "Acción",
+            "Verificación"
           ],
-          "certa": 2,
+          "certa": 3,
           "explica": "Había objetivo y acción; faltó un comando que lo probara. Sin verificación, quien decide que terminó es la opinión del agente. El error común es culpar al objetivo: puede estar claro y aun así nadie comprobar.",
           "ref": "diagrama",
           "cert": true
@@ -257,36 +257,36 @@
         {
           "p": "En el loop de juguete, ¿por qué la segunda ejecución no agrega la 6.ª línea?",
           "opcoes": [
-            "Porque bash recuerda la ejecución anterior",
-            "Porque la verificación corre antes de la acción y el estado está en un archivo",
-            "Porque MAX_CICLOS es 8",
-            "Porque saida.txt se borra al inicio"
+            "Porque MAX_CICLOS es 8 y el loop se detiene antes de la 6ª línea",
+            "Porque bash recuerda la ronda anterior y salta lo que ya hizo",
+            "Porque saida.txt se borra al inicio de cada ronda",
+            "Porque verifica antes de actuar y el estado queda en un archivo"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "El script relee estado.txt y saida.txt, comprueba primero y solo actúa si falta algo. El proceso de bash no guarda nada entre ejecuciones: la memoria es el archivo. Si la verificación viniera después de la acción, la segunda ejecución escribiría una línea de más antes de darse cuenta.",
           "ref": "codigo"
         },
         {
           "p": "Un loop tiene objetivo verificable, estado en archivo y prueba por ciclo, pero ningún tope. ¿Qué puede salir mal?",
           "opcoes": [
-            "Nada: si la prueba es buena, siempre termina",
-            "Girar indefinidamente cuando el objetivo es imposible o el agente se atasca",
-            "Se aprobará solo",
-            "Pierde el estado"
+            "Se va a aprobar solo, aunque la prueba falle",
+            "Pierde el estado entre un ciclo y otro",
+            "Girar sin fin si el objetivo es imposible o el agente se atasca",
+            "Nada: si la prueba es buena, el loop siempre termina solo cuando pasa"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Un buen test garantiza que no termina antes de tiempo, no que termine. Un objetivo imposible o un agente atascado en el mismo error solo se detienen por un tope: ciclos, tiempo, memoria, estancamiento o costo.",
           "ref": "diagrama"
         },
         {
           "p": "¿Qué objetivo está listo para convertirse en loop?",
           "opcoes": [
-            "Mejorar la calidad del módulo de login",
             "Dejar el código más limpio",
-            "python3 -m pytest -q tests/auth imprime 0 failed y el número de tests no disminuye",
-            "Revisar todo con cuidado"
+            "Revisar todo con cuidado",
+            "Mejorar la calidad del módulo de login",
+            "python3 -m pytest -q tests/auth imprime 0 failed y el número de tests no disminuye"
           ],
-          "certa": 2,
+          "certa": 3,
           "explica": "Es el único con un final que un comando puede comprobar. Los otros no terminan o dependen de una opinión. La escala completa, con lo que vuelve a prueba de atajos a un criterio, está en la lección 6.",
           "ref": "passos",
           "cert": true

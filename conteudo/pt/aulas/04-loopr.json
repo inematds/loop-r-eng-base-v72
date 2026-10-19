@@ -199,29 +199,29 @@
       "perguntas": [
         {
           "p": "Por que o LOOP-R usa nove agentes em vez de um agente que faz e confere?",
-          "opcoes": ["Porque nove agentes são mais rápidos", "Porque a separação impede um agente único de se convencer de que melhorou", "Porque cada modelo só aguenta uma tarefa", "Porque o Claude Code exige"],
-          "certa": 1,
+          "opcoes": ["Porque nove agentes em paralelo terminam o ciclo mais rápido", "Porque o Claude Code exige um agente por função", "Porque separar impede um agente de se convencer de que melhorou", "Porque cada modelo só aguenta uma tarefa de cada vez sem se perder"],
+          "certa": 2,
           "explica": "A doc 04 diz: cada um lê só o que o contrato lista e recusa o que está em \"nunca\". O agente que avalia o próprio trabalho tende a aprová-lo; separar funções é a verificação embutida no desenho.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "B subiu a métrica-alvo com margem significativa, mas piorou um guarda-corpo além da tolerância. Qual o veredito do Avaliador?",
-          "opcoes": ["B_GANHOU", "A_SEGUE", "AMOSTRA_INSUFICIENTE", "Depende do humano"],
-          "certa": 1,
+          "opcoes": ["A_SEGUE", "AMOSTRA_INSUFICIENTE", "Depende do humano", "B_GANHOU"],
+          "certa": 0,
           "explica": "B só ganha com o alvo subindo E nenhum guarda-corpo caindo além da tolerância. Foi o caso do ciclo 0002 do exemplo.",
           "ref": "passos"
         },
         {
           "p": "Qual agente tem decisão que ninguém revisa dentro do ciclo?",
-          "opcoes": ["Avaliador", "Meta-agente", "Guardião", "Crítico"],
-          "certa": 2,
+          "opcoes": ["Guardião", "Avaliador", "Crítico", "Meta-agente"],
+          "certa": 0,
           "explica": "O veto do Guardião é final, ele não negocia e em dúvida veta. O Meta-agente, ao contrário, não decide nada nas versões atuais: só relata.",
           "ref": "codigo"
         },
         {
           "p": "O que o exemplo vendas-whatsapp prova?",
-          "opcoes": ["Que o LOOP-R aumenta vendas", "Que o mecanismo roda de ponta a ponta com agentes reais, sobre dados sintéticos e decisões simuladas", "Que 300 execuções bastam sempre", "Nada: é só documentação"],
+          "opcoes": ["Que o LOOP-R aumenta as vendas de uma loja real no WhatsApp", "Que o mecanismo roda com agentes reais, sobre dados sintéticos", "Nada: é só documentação, os agentes não rodaram de verdade", "Que 300 execuções bastam para qualquer loop chegar a um veredito confiável"],
           "certa": 1,
           "explica": "Os agentes rodaram de verdade; os dados foram gerados e as aprovações, simuladas. Serve para ler o mecanismo, não como prova de ganho real.",
           "ref": "codigo",

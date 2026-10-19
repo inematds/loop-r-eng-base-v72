@@ -222,12 +222,12 @@
         {
           "p": "Why does the /goal condition ask for \"all three outputs printed in the conversation\"?",
           "opcoes": [
-            "So the log looks nice",
-            "Because the /goal evaluator only reads the conversation: without the printed output, it judges by the agent's word",
-            "Because pytest doesn't print anything on its own",
-            "To spend fewer tokens"
+            "So the log is complete and easy to audit later",
+            "Because pytest prints nothing if no one asks for the output in the condition",
+            "To spend fewer tokens on the evaluation turn",
+            "Because the evaluator only reads the chat, it doesn't run the commands"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "It's question 4 on the scale: does the proof show up in the output? The evaluator doesn't run the commands; the agent does, and the output has to be there to be judged.",
           "ref": "codigo",
           "cert": true
@@ -235,10 +235,10 @@
         {
           "p": "What does the hash in tests.sha256 add to \"6 passed\"?",
           "opcoes": [
-            "Nothing: 6 passed is already enough",
-            "Proof that the test file is the same one you froze, closing the shortcut of rewriting the tests",
-            "Speed",
-            "Compatibility with Codex"
+            "Speed: pytest skips tests whose hash hasn't changed",
+            "Proof that the test file is the same one you froze",
+            "Compatibility with Codex, which only accepts tests with a verified hash",
+            "Nothing: 6 passed already proves the code is correct"
           ],
           "certa": 1,
           "explica": "\"6 passed\" alone is level 2: an agent can swap the tests for six others that pass. The hash and the git diff lock the file. Together, level 3.",
@@ -247,12 +247,12 @@
         {
           "p": "The /goal finished with the condition met. What's the next step?",
           "opcoes": [
-            "Trust it and move on",
             "Run the three check commands yourself",
-            "Ask the agent to check again",
-            "Delete the tests"
+            "Ask the agent to check again and show the output",
+            "Trust the evaluator and move on",
+            "Open the PR right away, since the condition was met"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "You close it: the evaluator judged the conversation, you check the machine. It's what the execucao-longa kit asks for at the close of every run.",
           "ref": "pratica",
           "cert": true
@@ -260,10 +260,10 @@
         {
           "p": "After this course, what's next in the suggested order of the track?",
           "opcoes": [
-            "Course 5: the loop that learns",
-            "Course 1: verification and evals",
             "Course 3: multi-agent",
-            "None"
+            "Course 1: verification and evals",
+            "None",
+            "Course 5: the loop that learns"
           ],
           "certa": 1,
           "explica": "The suggested order is 0 → 1 → 2 → 3 → 4 → 5. Course 1 takes the piece that's missing most, verification, and brings it up to level 4.",

@@ -246,10 +246,10 @@
           "opcoes": [
             "Goal",
             "State",
-            "Verification",
-            "Action"
+            "Action",
+            "Verification"
           ],
-          "certa": 2,
+          "certa": 3,
           "explica": "There was a goal and an action; what was missing was a command that proved it. Without a check, the agent's opinion decides when it's done. The common mistake is to blame the goal: it may be clear and still nobody checked.",
           "ref": "diagrama",
           "cert": true
@@ -257,36 +257,36 @@
         {
           "p": "In the toy loop, why doesn't the second run add the 6th line?",
           "opcoes": [
-            "Because bash remembers the previous run",
-            "Because the check runs before the action and the state is in a file",
-            "Because MAX_CICLOS is 8",
-            "Because saida.txt is deleted at the start"
+            "Because MAX_CICLOS is 8 and the loop stops before the 6th line",
+            "Because bash remembers the previous round and skips what it already did",
+            "Because saida.txt is deleted at the start of each round",
+            "Because it checks before acting and the state lives in a file"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "The script rereads estado.txt and saida.txt, checks first and only acts if something is missing. The bash process keeps nothing between runs: the memory is the file. If the check came after the action, the second run would write one extra line before noticing.",
           "ref": "codigo"
         },
         {
           "p": "A loop has a verifiable goal, state in a file and a test per cycle, but no cap. What can go wrong?",
           "opcoes": [
-            "Nothing: if the test is good, it always finishes",
-            "It can spin indefinitely when the goal is impossible or the agent gets stuck",
-            "It approves itself",
-            "It loses its state"
+            "It will approve itself, even with the test failing",
+            "It loses state between one cycle and the next",
+            "Spinning forever if the goal is impossible or the agent gets stuck",
+            "Nothing: if the test is good, the loop always ends on its own once it passes"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "A good test guarantees it doesn't exit too early, not that it exits. An impossible goal or an agent stuck on the same error only stops at a cap: cycles, time, memory, stagnation or cost.",
           "ref": "diagrama"
         },
         {
           "p": "Which goal is ready to become a loop?",
           "opcoes": [
-            "Improve the quality of the login module",
             "Make the code cleaner",
-            "python3 -m pytest -q tests/auth prints 0 failed and the number of tests does not decrease",
-            "Review everything carefully"
+            "Review everything carefully",
+            "Improve the quality of the login module",
+            "python3 -m pytest -q tests/auth prints 0 failed and the number of tests does not decrease"
           ],
-          "certa": 2,
+          "certa": 3,
           "explica": "It's the only one with an end that a command can check. The others never finish or depend on opinion. The full scale, with what makes a criterion shortcut-proof, is in lesson 6.",
           "ref": "passos",
           "cert": true

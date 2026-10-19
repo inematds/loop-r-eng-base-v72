@@ -203,10 +203,10 @@
         {
           "p": "\"python3 -m pytest -q imprime 0 failed\". ¿Cuál es el nivel?",
           "opcoes": [
-            "1 · subjetivo",
-            "2 · burlable",
             "3 · protegido",
-            "4 · independiente"
+            "2 · burlable",
+            "4 · independiente",
+            "1 · subjetivo"
           ],
           "certa": 1,
           "explica": "Tiene comando, pero borrar los tests también da 0 failed. Falta la traba: cantidad mínima y tests intactos. El error común es creer que tener un comando ya es nivel 3.",
@@ -216,34 +216,34 @@
         {
           "p": "¿Cuál de las 5 preguntas derriba \"el agente confirma que revisó todo\"?",
           "opcoes": [
+            "Solo la 4",
+            "Ninguna: si el agente confirma por escrito, ya es nivel 3",
             "Solo la 5",
-            "La 1: no se puede comprobar con un comando, y la 3: se puede cumplir sin hacer el trabajo",
-            "Ninguna: es nivel 3",
-            "Solo la 4"
+            "La 1: no hay comando; y la 3: se puede cumplir sin hacerlo"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "No hay comando, la respuesta depende de que el agente diga que terminó (señal de criterio malo) y puede decirlo sin haberlo hecho. Nivel 1.",
           "ref": "codigo"
         },
         {
           "p": "¿Por qué importa la pregunta 4 (\"¿la prueba aparece en la salida?\") en el /goal de Claude Code?",
           "opcoes": [
-            "Porque la salida se ve más linda",
-            "Porque el evaluador solo lee la conversación: si el resultado no se imprimió, juzga por la palabra del agente",
-            "Porque el /goal corre los tests solo",
-            "No importa"
+            "Porque la salida impresa deja el log más fácil de revisar después",
+            "Porque el /goal corre las pruebas solo y necesita ver la salida",
+            "Porque el evaluador solo lee la conversación, no ejecuta nada",
+            "No importa: el /goal verifica los archivos al final"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Según la doc, el evaluador no corre comandos ni lee archivos. La prueba tiene que estar impresa en la conversación. El curso 1 lo profundiza.",
           "ref": "codigo"
         },
         {
           "p": "Un criterio cubre función y regresión, pero no dice nada sobre archivos que no podían cambiar. ¿Qué falta?",
           "opcoes": [
-            "Nada",
-            "La capa de límite, por ejemplo git diff --exit-code -- tests/ u otra carpeta protegida",
-            "Un modelo mejor",
-            "Más tests de función"
+            "Nada: función y regresión ya cubren lo que importa",
+            "La capa de límite, como git diff --exit-code -- tests/",
+            "Más pruebas de función, cubriendo los casos borde que faltaron",
+            "Un modelo mejor, que no toque donde no debe"
           ],
           "certa": 1,
           "explica": "Función, regresión y límite: sin límite, el agente puede cumplir el resto tocando donde no debía. \"No dice qué NO puede cambiar\" está entre las señales de criterio malo.",

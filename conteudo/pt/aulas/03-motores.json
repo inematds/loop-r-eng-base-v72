@@ -199,29 +199,29 @@
       "perguntas": [
         {
           "p": "Sua condição do /goal é \"todos os testes passam\". O agente escreve \"rodei os testes, todos passam\" sem mostrar a saída. O que acontece?",
-          "opcoes": ["O avaliador roda os testes e confere", "O avaliador só lê a conversa, então pode aceitar a frase do agente", "O /goal sempre recusa sem saída", "O Claude Code bloqueia a resposta"],
-          "certa": 1,
+          "opcoes": ["O /goal recusa qualquer conclusão que não traga a saída", "O Claude Code bloqueia a resposta até os testes rodarem", "O avaliador só lê a conversa e pode aceitar a frase", "O avaliador roda os testes por conta própria e confere o resultado"],
+          "certa": 2,
           "explica": "Pela doc, o avaliador não roda comandos nem lê arquivos: julga o que apareceu na conversa. Por isso a condição pede a prova impressa (\"npm test sai 0\"). O curso 1 mostra como tornar isso à prova de atalho.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "Você quer conferir o CI a cada 10 minutos durante a tarde, com o terminal aberto. Qual motor?",
-          "opcoes": ["/goal", "/loop", "routines", "codex exec"],
-          "certa": 1,
+          "opcoes": ["/goal", "codex exec", "routines", "/loop"],
+          "certa": 3,
           "explica": "É vigilância por tempo dentro da sessão: o caso do /loop. /goal persegue uma condição a cada turno; routines é para quando não há terminal aberto.",
           "ref": "passos"
         },
         {
           "p": "Por que uma routine não serve para rodar os testes de um projeto que só existe no seu notebook?",
-          "opcoes": ["Porque routines não rodam testes", "Porque roda na nuvem num clone novo, sem acesso aos arquivos locais", "Porque o intervalo mínimo é 1 minuto", "Porque precisa de API paga"],
-          "certa": 1,
+          "opcoes": ["Porque roda na nuvem num clone novo, sem seus arquivos locais", "Porque routine exige plano pago de API", "Porque routines só agendam prompts e não executam comandos de teste", "Porque o intervalo mínimo de uma routine é 1 minuto"],
+          "certa": 0,
           "explica": "A tabela oficial diz: acesso a arquivos locais, não (clone novo). O intervalo mínimo da routine é 1 hora; 1 minuto é o do /loop e do Desktop.",
           "ref": "diagrama"
         },
         {
           "p": "O que falta no Ralph na forma pura, while :; do cat PROMPT.md | claude-code ; done?",
-          "opcoes": ["Estado: ele não usa arquivos", "Parada e verificação: o laço não tem fim nem teste", "Ação: ele não chama o agente", "Nada: é um loop completo"],
+          "opcoes": ["Estado: ele não guarda nada em arquivos entre voltas", "Parada e verificação: não tem fim nem teste", "Ação: o laço não chama o agente de verdade", "Nada: é um loop completo, só que minimalista"],
           "certa": 1,
           "explica": "O estado está nos arquivos e no git, e cada volta age. Mas nada decide que acabou e nada confere o trabalho: as duas peças que você acrescenta.",
           "ref": "codigo",
@@ -229,8 +229,8 @@
         },
         {
           "p": "Um /loop recorrente criado hoje ainda vai rodar daqui a um mês?",
-          "opcoes": ["Sim, até você cancelar", "Não: tarefas recorrentes expiram 7 dias depois de criadas", "Só se a sessão for retomada", "Só no modo auto"],
-          "certa": 1,
+          "opcoes": ["Sim: continua até você cancelar ou fechar o terminal", "Só se a sessão for retomada antes de cada disparo", "Não: recorrentes expiram 7 dias depois de criadas", "Só se estiver no modo auto"],
+          "certa": 2,
           "explica": "A doc limita o tempo de vida de um loop esquecido: dispara uma última vez e se apaga aos 7 dias. Para durar mais, recrie ou use agenda fora da sessão.",
           "ref": "diagrama"
         }

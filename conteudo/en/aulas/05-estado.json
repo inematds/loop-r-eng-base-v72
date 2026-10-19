@@ -230,11 +230,11 @@
           "p": "After a compaction, the summary says \"f3 done\", but features.json shows f3 with passes: false and there is no commit for f3. Which one counts?",
           "opcoes": [
             "The summary, since it is more recent",
+            "Mark f3 as true to save time",
             "The file and git: f3 is pending",
-            "Ask the model if it remembers",
-            "Mark f3 as true to save time"
+            "Ask the model if it remembers"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "The summary mixes what is confirmed with guesses. What has proof is what is in the file with a commit. Marking it without checking is exactly the shortcut the list exists to prevent.",
           "ref": "diagrama",
           "cert": true
@@ -242,12 +242,12 @@
         {
           "p": "Why does Anthropic's harness post keep the list of items in JSON and not in Markdown?",
           "opcoes": [
-            "Because JSON is faster to read",
             "Because the model overwrites JSON less than Markdown",
-            "Because Claude Code only reads JSON",
-            "Because Markdown has no fields"
+            "Because JSON is faster to read and takes up less context",
+            "Because Markdown has no fields to mark what passed",
+            "Because Claude Code only reads state files in JSON"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "That is the reason given in the post itself: with JSON the model tends to just change the passes field, instead of rewriting the list. Later sessions can only change that field.",
           "ref": "diagrama"
         },
@@ -255,23 +255,23 @@
           "p": "What is the advantage of one commit per item instead of one commit at the end?",
           "opcoes": [
             "None, it just clutters the history",
-            "Each verified item becomes a resume point and can be undone on its own",
             "Git gets faster",
-            "The model reads small commits better"
+            "The model reads small commits better",
+            "Each verified item becomes a resume point and can be undone on its own"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "If the session drops, what was verified is saved; if an item came out wrong, git revert undoes only that one. A single commit at the end loses everything in a crash and mixes right with wrong.",
           "ref": "codigo"
         },
         {
           "p": "In the simulation, the session dropped in the middle of an item. What happens to that item on resume?",
           "opcoes": [
-            "It is marked as done",
+            "It's discarded and dropped from the item list",
+            "It goes to failed and requires human review",
             "It goes back to pending, because it has no commit",
-            "It is discarded",
-            "It goes to falhou"
+            "It's marked as done, since it had already started"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Without verification and without a commit, there is no proof it finished: it goes back to pending and is redone. What already has a commit is not redone.",
           "ref": "simfila",
           "cert": true

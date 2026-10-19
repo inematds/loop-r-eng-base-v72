@@ -245,12 +245,12 @@
         {
           "p": "Your /goal condition is \"all tests pass\". The agent writes \"I ran the tests, all pass\" without showing the output. What happens?",
           "opcoes": [
-            "The evaluator runs the tests and checks",
-            "The evaluator only reads the conversation, so it may accept the agent's sentence",
-            "/goal always refuses without output",
-            "Claude Code blocks the reply"
+            "/goal rejects any conclusion that doesn't include the output",
+            "Claude Code blocks the reply until the tests run",
+            "The evaluator only reads the chat and may accept the claim",
+            "The evaluator runs the tests on its own and checks the result"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Per the doc, the evaluator does not run commands or read files: it judges what appeared in the conversation. That is why the condition asks for the proof to be printed (\"npm test sai 0\"). Course 1 shows how to make this shortcut-proof.",
           "ref": "diagrama",
           "cert": true
@@ -259,33 +259,33 @@
           "p": "You want to check the CI every 10 minutes during the afternoon, with the terminal open. Which engine?",
           "opcoes": [
             "/goal",
-            "/loop",
+            "codex exec",
             "routines",
-            "codex exec"
+            "/loop"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "It's time-based watching inside the session: the /loop case. /goal pursues a condition on every turn; routines is for when there is no open terminal.",
           "ref": "passos"
         },
         {
           "p": "Why is a routine not suited to running the tests of a project that only exists on your laptop?",
           "opcoes": [
-            "Because routines don't run tests",
-            "Because it runs in the cloud on a fresh clone, with no access to local files",
-            "Because the minimum interval is 1 minute",
-            "Because it needs a paid API"
+            "Because it runs in the cloud on a fresh clone, without your local files",
+            "Because a routine requires a paid API plan",
+            "Because routines only schedule prompts and don't run test commands",
+            "Because the minimum interval of a routine is 1 minute"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "The official table says: local file access, no (fresh clone). The routine's minimum interval is 1 hour; 1 minute is the one for /loop and Desktop.",
           "ref": "diagrama"
         },
         {
           "p": "What is missing from Ralph in its pure form, while :; do cat PROMPT.md | claude-code ; done?",
           "opcoes": [
-            "State: it doesn't use files",
-            "Stopping and verification: the loop has no end and no test",
-            "Action: it doesn't call the agent",
-            "Nothing: it's a complete loop"
+            "State: it keeps nothing in files between turns",
+            "Stopping and verification: it has no end and no test",
+            "Action: the loop doesn't actually call the agent",
+            "Nothing: it's a complete loop, just minimalist"
           ],
           "certa": 1,
           "explica": "The state lives in the files and in git, and each turn acts. But nothing decides that it's done and nothing checks the work: the two pieces you add.",
@@ -295,12 +295,12 @@
         {
           "p": "Will a recurring /loop created today still run a month from now?",
           "opcoes": [
-            "Yes, until you cancel it",
-            "No: recurring tasks expire 7 days after they are created",
-            "Only if the session is resumed",
-            "Only in auto mode"
+            "Yes: it keeps going until you cancel or close the terminal",
+            "Only if the session is resumed before each trigger",
+            "No: recurring ones expire 7 days after being created",
+            "Only if it's in auto mode"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "The doc limits the lifetime of a forgotten loop: it fires one last time and deletes itself at 7 days. To last longer, recreate it or use a schedule outside the session.",
           "ref": "diagrama"
         }

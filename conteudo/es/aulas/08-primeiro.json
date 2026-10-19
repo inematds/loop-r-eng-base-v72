@@ -222,12 +222,12 @@
         {
           "p": "¿Por qué la condición del /goal pide \"las tres salidas impresas en la conversación\"?",
           "opcoes": [
-            "Para que el log se vea bonito",
-            "Porque el evaluador del /goal solo lee la conversación: sin la salida impresa, juzga por la palabra del agente",
-            "Porque pytest no imprime nada por sí solo",
-            "Para gastar menos tokens"
+            "Para que el log quede completo y fácil de auditar después",
+            "Porque pytest no imprime nada si nadie pide la salida en la condición",
+            "Para gastar menos tokens en el turno de evaluación",
+            "Porque el evaluador solo lee la conversación, no ejecuta los comandos"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "Es la pregunta 4 de la escala: ¿la prueba aparece en la salida? El evaluador no ejecuta los comandos; quien los ejecuta es el agente, y la salida tiene que estar ahí para ser juzgada.",
           "ref": "codigo",
           "cert": true
@@ -235,10 +235,10 @@
         {
           "p": "¿Qué le agrega el hash en tests.sha256 al \"6 passed\"?",
           "opcoes": [
-            "Nada: con 6 passed ya basta",
-            "Prueba de que el archivo de tests es el mismo que congelaste, cerrando el atajo de reescribir los tests",
-            "Velocidad",
-            "Compatibilidad con Codex"
+            "Velocidad: pytest salta pruebas cuyo hash no cambió",
+            "Prueba de que el archivo de pruebas es el mismo que congelaste",
+            "Compatibilidad con Codex, que solo acepta pruebas con hash verificado",
+            "Nada: 6 passed ya prueba que el código está correcto"
           ],
           "certa": 1,
           "explica": "\"6 passed\" solo es nivel 2: un agente puede cambiar los tests por otros seis que pasan. El hash y el git diff traban el archivo. Juntos, nivel 3.",
@@ -247,12 +247,12 @@
         {
           "p": "El /goal terminó con la condición cumplida. ¿Cuál es el siguiente paso?",
           "opcoes": [
-            "Confiar y seguir",
             "Ejecutar tú mismo los tres comandos de verificación",
-            "Pedirle al agente que verifique otra vez",
-            "Borrar los tests"
+            "Pedirle al agente que verifique de nuevo y muestre la salida",
+            "Confiar en el evaluador y seguir",
+            "Abrir el PR directo, ya que la condición se cumplió"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Quien cierra eres tú: el evaluador juzgó la conversación, tú verificas la máquina. Es lo que el kit execucao-longa pide al cierre de toda ejecución.",
           "ref": "pratica",
           "cert": true
@@ -260,10 +260,10 @@
         {
           "p": "Después de este curso, ¿cuál es el siguiente en el orden sugerido de la formación?",
           "opcoes": [
-            "Curso 5: el loop que aprende",
-            "Curso 1: verificación y evals",
             "Curso 3: multiagente",
-            "Ninguno"
+            "Curso 1: verificación y evals",
+            "Ninguno",
+            "Curso 5: el loop que aprende"
           ],
           "certa": 1,
           "explica": "El orden sugerido es 0 → 1 → 2 → 3 → 4 → 5. El curso 1 toma la pieza que más falta, la verificación, y la lleva hasta el nivel 4.",

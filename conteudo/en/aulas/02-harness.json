@@ -240,12 +240,12 @@
         {
           "p": "Every new session the agent forgets that the project uses pnpm and runs npm. Which harness piece fixes this?",
           "opcoes": [
-            "Tools",
-            "Context: one line in the project's CLAUDE.md or AGENTS.md",
-            "Permissions",
-            "A bigger model"
+            "Tools: more commands available in the terminal",
+            "A bigger model that works out the project's package manager on its own",
+            "Permissions: approve each command before it runs",
+            "Context: one line in CLAUDE.md or AGENTS.md"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "It's project knowledge the model doesn't have at the start; the harness loads it through the rules file. Switching models doesn't fix it: no model guesses your project's convention.",
           "ref": "diagrama",
           "cert": true
@@ -253,22 +253,22 @@
         {
           "p": "The agent said \"I fixed the bug\" and the bug is still there. Which piece was missing, and what's the harness fix?",
           "opcoes": [
-            "Memory: increase the window",
-            "Verification: a test that reproduces the bug and runs before declaring it done",
-            "Permissions: ask for approval on every edit",
-            "Context: explain the bug better"
+            "Verification: a test that reproduces the bug, run before done",
+            "Memory: enlarge the context window so it remembers the bug",
+            "Permissions: require human approval of each edit before saving",
+            "Context: explain the bug better in the initial prompt"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Without verification, \"I fixed it\" is an opinion. A test that fails before and passes after turns opinion into proof. Explaining better helps, but it doesn't stop the agent from approving itself.",
           "ref": "diagrama"
         },
         {
           "p": "According to Anthropic's March 2026 engineering post, what should you do with the harness when you switch models?",
           "opcoes": [
-            "Nothing: a good harness works with any model",
-            "Re-evaluate each piece, because each one encodes an assumption about the model",
-            "Replace the entire harness",
-            "Turn off compaction"
+            "Replace the whole harness with one built for the new model",
+            "Re-evaluate each piece: each one assumes something about the model",
+            "Turn off compaction, since the new model no longer needs it",
+            "Nothing: a well-built harness works the same with any new model"
           ],
           "certa": 1,
           "explica": "Context resets existed because of one model's behavior; in the next model the behavior went away and the piece came out. A piece that's no longer needed only costs you.",
@@ -277,12 +277,12 @@
         {
           "p": "Why does the same model give different results in Claude Code and in Codex?",
           "opcoes": [
-            "Because the model changes its mood",
-            "Because the harness around it (context, tools, verification, permissions, loop) is different",
-            "Because one uses an API and the other doesn't",
-            "It doesn't: the result is always the same"
+            "Because the harness around the model is different",
+            "It can't: with the same prompt the result is always the same",
+            "Because each tool uses a different version of the same model",
+            "Because one uses an API and the other runs only on the subscription"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "Choosing the tool means choosing its harness. The model decides; the harness defines what it knows, what it can do, and how it checks.",
           "ref": "diagrama",
           "cert": true

@@ -191,30 +191,30 @@
       "perguntas": [
         {
           "p": "Toda sessão nova o agente esquece que o projeto usa pnpm e roda npm. Qual peça do harness resolve?",
-          "opcoes": ["Ferramentas", "Contexto: uma linha no CLAUDE.md ou AGENTS.md do projeto", "Permissões", "Um modelo maior"],
-          "certa": 1,
+          "opcoes": ["Ferramentas: mais comandos disponíveis no terminal", "Um modelo maior, que deduza sozinho o gerenciador de pacotes do projeto", "Permissões: aprovar cada comando antes de rodar", "Contexto: uma linha no CLAUDE.md ou AGENTS.md"],
+          "certa": 3,
           "explica": "É conhecimento do projeto que o modelo não tem ao começar; o harness carrega isso pelo arquivo de regras. Trocar de modelo não resolve: nenhum modelo adivinha a convenção do seu projeto.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "O agente disse \"corrigi o bug\" e o bug continua. Qual peça faltou, e qual a correção de harness?",
-          "opcoes": ["Memória: aumentar a janela", "Verificação: um teste que reproduz o bug e roda antes de declarar pronto", "Permissões: pedir aprovação de cada edição", "Contexto: explicar melhor o bug"],
-          "certa": 1,
+          "opcoes": ["Verificação: um teste que reproduz o bug, rodado antes do pronto", "Memória: aumentar a janela de contexto para ele lembrar do bug", "Permissões: exigir aprovação humana de cada edição antes de salvar", "Contexto: explicar melhor o bug no prompt inicial"],
+          "certa": 0,
           "explica": "Sem verificação, \"corrigi\" é opinião. Um teste que falha antes e passa depois transforma opinião em prova. Explicar melhor ajuda, mas não impede o agente de se aprovar.",
           "ref": "diagrama"
         },
         {
           "p": "Segundo o post de engenharia da Anthropic de março/2026, o que fazer com o harness quando troca o modelo?",
-          "opcoes": ["Nada: harness bom serve a qualquer modelo", "Reavaliar cada peça, porque cada uma codifica uma suposição sobre o modelo", "Trocar o harness inteiro", "Desligar a compactação"],
+          "opcoes": ["Trocar o harness inteiro por um feito para o modelo novo", "Reavaliar cada peça: cada uma supõe algo sobre o modelo", "Desligar a compactação, que o modelo novo já dispensa", "Nada: um harness bem feito serve igual a qualquer modelo novo"],
           "certa": 1,
           "explica": "Os resets de contexto existiam por causa de um comportamento de um modelo; no modelo seguinte o comportamento sumiu e a peça saiu. Peça que não serve mais só custa.",
           "ref": "passos"
         },
         {
           "p": "Por que o mesmo modelo dá resultados diferentes no Claude Code e no Codex?",
-          "opcoes": ["Porque o modelo muda de humor", "Porque o harness em volta (contexto, ferramentas, verificação, permissões, loop) é diferente", "Porque um usa API e o outro não", "Não dá: o resultado é sempre igual"],
-          "certa": 1,
+          "opcoes": ["Porque o harness em volta do modelo é diferente", "Não dá: com o mesmo prompt o resultado é sempre igual", "Porque cada ferramenta usa uma versão diferente do mesmo modelo", "Porque um usa API e o outro roda só pela assinatura"],
+          "certa": 0,
           "explica": "Escolher a ferramenta é escolher o harness dela. O modelo decide; o harness define o que ele sabe, o que pode fazer e como confere.",
           "ref": "diagrama",
           "cert": true

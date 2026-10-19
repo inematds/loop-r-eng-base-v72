@@ -245,12 +245,12 @@
         {
           "p": "Tu condición del /goal es \"todos los tests pasan\". El agente escribe \"ejecuté los tests, todos pasan\" sin mostrar la salida. ¿Qué pasa?",
           "opcoes": [
-            "El evaluador ejecuta los tests y lo confirma",
-            "El evaluador solo lee la conversación, así que puede aceptar la frase del agente",
-            "El /goal siempre rechaza sin salida",
-            "Claude Code bloquea la respuesta"
+            "El /goal rechaza cualquier conclusión que no traiga la salida",
+            "Claude Code bloquea la respuesta hasta que corran las pruebas",
+            "El evaluador solo lee la conversación y puede aceptar la frase",
+            "El evaluador ejecuta las pruebas por su cuenta y verifica el resultado"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "Según la doc, el evaluador no ejecuta comandos ni lee archivos: juzga lo que apareció en la conversación. Por eso la condición pide la prueba impresa (\"npm test sai 0\"). El curso 1 muestra cómo hacerlo a prueba de atajos.",
           "ref": "diagrama",
           "cert": true
@@ -259,33 +259,33 @@
           "p": "Quieres revisar el CI cada 10 minutos durante la tarde, con el terminal abierto. ¿Qué motor?",
           "opcoes": [
             "/goal",
-            "/loop",
+            "codex exec",
             "routines",
-            "codex exec"
+            "/loop"
           ],
-          "certa": 1,
+          "certa": 3,
           "explica": "Es vigilancia por tiempo dentro de la sesión: el caso del /loop. /goal persigue una condición en cada turno; routines es para cuando no hay terminal abierta.",
           "ref": "passos"
         },
         {
           "p": "¿Por qué una routine no sirve para correr las pruebas de un proyecto que solo existe en tu notebook?",
           "opcoes": [
-            "Porque las routines no corren pruebas",
-            "Porque corre en la nube sobre un clon nuevo, sin acceso a los archivos locales",
-            "Porque el intervalo mínimo es 1 minuto",
-            "Porque necesita una API de pago"
+            "Porque corre en la nube en un clon nuevo, sin tus archivos locales",
+            "Porque la routine exige un plan de API de pago",
+            "Porque las routines solo programan prompts y no ejecutan comandos de prueba",
+            "Porque el intervalo mínimo de una routine es 1 minuto"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "La tabla oficial dice: acceso a archivos locales, no (clon nuevo). El intervalo mínimo de la routine es 1 hora; 1 minuto es el del /loop y del Desktop.",
           "ref": "diagrama"
         },
         {
           "p": "¿Qué le falta al Ralph en su forma pura, while :; do cat PROMPT.md | claude-code ; done?",
           "opcoes": [
-            "Estado: no usa archivos",
-            "Parada y verificación: el bucle no tiene fin ni prueba",
-            "Acción: no llama al agente",
-            "Nada: es un loop completo"
+            "Estado: no guarda nada en archivos entre vueltas",
+            "Parada y verificación: no tiene fin ni prueba",
+            "Acción: el ciclo no llama al agente de verdad",
+            "Nada: es un loop completo, solo que minimalista"
           ],
           "certa": 1,
           "explica": "El estado está en los archivos y en git, y cada vuelta actúa. Pero nada decide que terminó y nada revisa el trabajo: las dos piezas que tú agregas.",
@@ -295,12 +295,12 @@
         {
           "p": "¿Un /loop recurrente creado hoy seguirá corriendo dentro de un mes?",
           "opcoes": [
-            "Sí, hasta que lo canceles",
-            "No: las tareas recurrentes expiran 7 días después de creadas",
-            "Solo si la sesión se retoma",
-            "Solo en el modo auto"
+            "Sí: continúa hasta que lo canceles o cierres la terminal",
+            "Solo si la sesión se retoma antes de cada disparo",
+            "No: los recurrentes expiran 7 días después de creados",
+            "Solo si está en modo auto"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "La doc limita el tiempo de vida de un loop olvidado: se dispara una última vez y se borra a los 7 días. Para que dure más, recréalo o usa una agenda fuera de la sesión.",
           "ref": "diagrama"
         }

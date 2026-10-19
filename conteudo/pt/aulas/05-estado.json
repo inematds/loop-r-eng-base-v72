@@ -186,30 +186,30 @@
       "perguntas": [
         {
           "p": "Depois de uma compactação, o resumo diz \"f3 concluído\", mas features.json mostra f3 com passes: false e não há commit de f3. O que vale?",
-          "opcoes": ["O resumo, que é mais recente", "O arquivo e o git: f3 está pendente", "Perguntar ao modelo se ele lembra", "Marcar f3 como true para não perder tempo"],
-          "certa": 1,
+          "opcoes": ["O resumo, que é mais recente", "Marcar f3 como true para não perder tempo", "O arquivo e o git: f3 está pendente", "Perguntar ao modelo se ele lembra"],
+          "certa": 2,
           "explica": "O resumo mistura o confirmado com o palpite. O que tem prova é o que está no arquivo com commit. Marcar sem verificar é exatamente o atalho que a lista existe para impedir.",
           "ref": "diagrama",
           "cert": true
         },
         {
           "p": "Por que o post de harness da Anthropic guarda a lista de itens em JSON e não em Markdown?",
-          "opcoes": ["Porque JSON é mais rápido de ler", "Porque o modelo sobrescreve JSON menos do que Markdown", "Porque o Claude Code só lê JSON", "Porque Markdown não tem campos"],
-          "certa": 1,
+          "opcoes": ["Porque o modelo sobrescreve JSON menos que Markdown", "Porque JSON é mais rápido de ler e ocupa menos contexto", "Porque Markdown não tem campos para marcar o que passou", "Porque o Claude Code só lê arquivos de estado em JSON"],
+          "certa": 0,
           "explica": "É a razão dada no próprio post: com JSON o modelo tende a só trocar o campo passes, em vez de reescrever a lista. As sessões seguintes só podem mudar esse campo.",
           "ref": "diagrama"
         },
         {
           "p": "Qual a vantagem de um commit por item em vez de um commit no fim?",
-          "opcoes": ["Nenhuma, só polui o histórico", "Cada item verificado vira um ponto de retomada e pode ser desfeito sozinho", "O git fica mais rápido", "O modelo lê melhor commits pequenos"],
-          "certa": 1,
+          "opcoes": ["Nenhuma, só polui o histórico", "O git fica mais rápido", "O modelo lê melhor commits pequenos", "Cada item verificado vira um ponto de retomada e pode ser desfeito sozinho"],
+          "certa": 3,
           "explica": "Se a sessão cair, o que foi verificado está salvo; se um item saiu errado, git revert desfaz só ele. Um commit no fim perde tudo numa queda e mistura acertos com erros.",
           "ref": "codigo"
         },
         {
           "p": "Na simulação, a sessão caiu no meio de um item. O que acontece com ele na retomada?",
-          "opcoes": ["É marcado como feito", "Volta para pendentes, porque não tem commit", "É descartado", "Vai para falhou"],
-          "certa": 1,
+          "opcoes": ["É descartado e sai da lista de itens", "Vai para falhou e exige revisão humana", "Volta para pendentes, porque não tem commit", "É marcado como feito, porque já tinha começado"],
+          "certa": 2,
           "explica": "Sem verificação e sem commit, não há prova de que terminou: volta para pendentes e é refeito. O que já tem commit não é refeito.",
           "ref": "simfila",
           "cert": true

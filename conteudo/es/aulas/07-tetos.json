@@ -330,12 +330,12 @@
         {
           "p": "El loop tiene MAX_CICLOS=50 y criterio nivel 3. Los tests llevan 4 ciclos en 41 de 48. ¿Qué tope debería haber parado?",
           "opcoes": [
-            "Turnos",
-            "Tiempo",
+            "Memoria",
             "Estancamiento",
-            "Memoria"
+            "Turnos",
+            "Tiempo"
           ],
-          "certa": 2,
+          "certa": 1,
           "explica": "Turnos todavía no se alcanzó (50). Quien detecta al agente atascado en el mismo lugar es el conteo de ciclos sin avance medido. Sin él, los 46 ciclos restantes giran en vano.",
           "ref": "diagrama",
           "cert": true
@@ -343,24 +343,24 @@
         {
           "p": "timeout 20m codex exec … terminó con código 124. ¿Qué pasó?",
           "opcoes": [
-            "El agente terminó con éxito",
             "Se acabó el plazo de 20 minutos y el comando fue matado",
-            "Faltó memoria",
-            "El test falló"
+            "El agente terminó con éxito y el timeout solo registró el tiempo",
+            "Faltó memoria y el sistema mató el proceso",
+            "La prueba falló y codex exec devolvió error"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "124 es el código que devuelve timeout cuando mata el comando por plazo. 137 es el de un proceso matado por señal, como en el tope de memoria.",
           "ref": "codigo"
         },
         {
           "p": "El agente está dentro de todos los topes y quiere hacer push a la rama de producción para terminar la tarea. ¿Qué hacer?",
           "opcoes": [
-            "Dejarlo: está dentro del tope",
             "Parar y pedir aprobación humana: es una acción externa e irreversible",
+            "Mandar el push con --force",
             "Subir el tope de costo",
-            "Mandar el push con --force"
+            "Dejarlo: está dentro del tope"
           ],
-          "certa": 1,
+          "certa": 0,
           "explica": "El tope limita cuánto gasta el loop; no limita lo que hace. Push a producción, correo, borrar datos y gasto pago siempre se detienen en la puerta humana.",
           "ref": "passos",
           "cert": true
@@ -368,12 +368,12 @@
         {
           "p": "En la conversación simulada, ¿por qué \"sube el MAX_CICLOS a 30\" es la opción débil?",
           "opcoes": [
-            "Porque 30 es poco",
-            "Porque el agente ya mostró que falta un fixture: más ciclos no crean la pieza que falta",
-            "Porque el tope de tiempo se iba a agotar",
-            "Porque MAX_CICLOS no existe"
+            "Porque el tope de tiempo se iba a agotar mucho antes de que acabaran los 30 ciclos",
+            "Porque MAX_CICLOS no existe en este loop",
+            "Porque falta un fixture: más ciclos no crean la pieza que falta",
+            "Porque 30 es poco: lo correcto sería subir a 100 de una vez"
           ],
-          "certa": 1,
+          "certa": 2,
           "explica": "El estancamiento es información: algo falta. La respuesta útil es corregir la causa y volver con un tope nuevo, no comprar más vueltas.",
           "ref": "simconversa"
         }
