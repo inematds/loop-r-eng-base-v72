@@ -9,6 +9,7 @@ When I correct you, or you catch yourself making a mistake: before continuing, a
 
 ## Lessons
 
+- Revisão de 19/10/2026: "pronto quando" de passo com modelo real confere só formato e código de saída (`echo "saída: $?"`, `grep -cE '^[0-9]+$'`), nunca a resposta; no EN/ES, marcas que o grep procura (`objetivo:`, `nível 3`, chaves do harness.md) ficam em PT e a aula avisa; regex de palavras vagas vai no idioma do aluno; prompt de /goal e /loop dentro de bloco se traduz (o tradutor devolvia em PT); com `traduzir.py` 7.8.11, tire `href_idioma` dos cartões de `inicio.cursos` ou o link sai `/en/en/`.
 - Nó de diagrama com rolagem guiada não precisa de número no título: a aba já numera (o motor 7.5.5 tira o "N · " repetido). Com 6 nós em escada no desktop, títulos de uma ou duas palavras evitam quebra (19/10/2026).
 - Placeholder com `<…>` só dentro de bloco `codigo`; em texto (passos, exemplo, falas) ele vira tag invisível e trava a tradução: use [colchetes] ou reescreva. O `validar.py` 7.5.3 acusa (19/10/2026).
 - Tradução para espanhol: "del" (e "set", "type") é prosa comum; detector de comando só aceita essas palavras seguidas de caminho, opção ou variável (19/10/2026).

@@ -182,7 +182,7 @@
           "titulo": "E2 · codex exec só leitura",
           "min": "5 min",
           "texto": "Na mesma pasta, peça ao Codex sem interface para contar arquivos, gravando a última mensagem num arquivo.",
-          "pronto": "<code>codex exec -o resposta.txt \"quantos arquivos .txt há nesta pasta? responda só com o número\"</code> termina e <code>cat resposta.txt</code> → <code>1</code>."
+          "pronto": "<code>codex exec -o resposta.txt \"quantos arquivos .txt há nesta pasta? responda só com o número\"; echo \"saída: $?\"</code> → <code>saída: 0</code>, e <code>grep -cE '^[0-9]+$' resposta.txt</code> → <code>1</code> (a resposta é uma linha só com um número; o critério confere o formato, não o que o modelo respondeu)."
         },
         {
           "id": "e3",

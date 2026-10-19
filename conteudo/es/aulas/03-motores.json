@@ -178,12 +178,12 @@
         {
           "rot": "Claude Code · /goal interactivo y sin interfaz",
           "icone": "alvo",
-          "conteudo": "/goal python3 -m pytest -q tests/ imprime 6 passed e git diff --stat -- tests/ sai vazio, ou pare depois de 15 turnos\n/goal clear\n\nclaude -p \"/goal CHANGELOG.md tem uma entrada para cada PR desta semana\" --output-format stream-json --verbose"
+          "conteudo": "/goal python3 -m pytest -q tests/ imprime 6 passed y git diff --stat -- tests/ sale vacío, o detente después de 15 turnos\n/goal clear\n\nclaude -p \"/goal CHANGELOG.md tiene una entrada para cada PR de esta semana\" --output-format stream-json --verbose"
         },
         {
           "rot": "Claude Code · /loop por tiempo",
           "icone": "relogio",
-          "conteudo": "/loop 5m confira se o deploy terminou e me diga o que aconteceu\n/loop confira se o CI passou e responda aos comentários de revisão"
+          "conteudo": "/loop 5m revisa si el deploy terminó y dime qué pasó\n/loop revisa si el CI pasó y responde a los comentarios de revisión"
         },
         {
           "rot": "Ralph · la forma pura (ghuntley.com/ralph)",
@@ -193,7 +193,7 @@
         {
           "rot": "Codex · una ejecución sin interfaz",
           "icone": "terminal",
-          "conteudo": "codex exec \"conte os arquivos .md desta pasta e responda só com o número\"\ncodex exec --sandbox workspace-write \"crie ola.txt com a palavra ola\"\ncodex exec --json \"resuma a estrutura do repositório\" > eventos.jsonl\ncodex exec resume --last \"agora corrija o que você encontrou\""
+          "conteudo": "codex exec \"cuenta los archivos .md de esta carpeta y responde solo con el número\"\ncodex exec --sandbox workspace-write \"crea ola.txt con la palabra ola\"\ncodex exec --json \"resume la estructura del repositorio\" > eventos.jsonl\ncodex exec resume --last \"ahora corrige lo que encontraste\""
         }
       ],
       "saida": {
@@ -219,7 +219,7 @@
           "id": "e1",
           "titulo": "E1 · Un /goal con prueba en la salida",
           "min": "10 min",
-          "texto": "En una carpeta vacía con git iniciado, abre Claude Code y ejecuta: /goal o arquivo ola.txt existe e cat ola.txt imprime ola na conversa, ou pare depois de 5 turnos.",
+          "texto": "En una carpeta vacía con git iniciado, abre Claude Code y ejecuta: /goal el archivo ola.txt existe y cat ola.txt imprime ola en la conversación, o detente después de 5 turnos.",
           "pronto": "<code>cat ola.txt</code> → <code>ola</code>, y el estado del goal en Claude Code muestra la condición como alcanzada, con el conteo de turnos."
         },
         {
@@ -227,7 +227,7 @@
           "titulo": "E2 · codex exec solo lectura",
           "min": "5 min",
           "texto": "En la misma carpeta, pídele a Codex sin interfaz que cuente archivos, guardando el último mensaje en un archivo.",
-          "pronto": "<code>codex exec -o resposta.txt \"quantos arquivos .txt há nesta pasta? responda só com o número\"</code> termina y <code>cat resposta.txt</code> → <code>1</code>."
+          "pronto": "<code>codex exec -o resposta.txt \"¿cuántos archivos .txt hay en esta carpeta? responde solo con el número\"; echo \"saída: $?\"</code> → <code>saída: 0</code>, y <code>grep -cE '^[0-9]+$' resposta.txt</code> → <code>1</code> (la respuesta es una sola línea con un número; el criterio comprueba el formato, no lo que respondió el modelo)."
         },
         {
           "id": "e3",

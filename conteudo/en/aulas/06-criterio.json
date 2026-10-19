@@ -177,8 +177,8 @@
           "id": "e1",
           "titulo": "E1 · Classify and rewrite",
           "min": "15 min",
-          "texto": "In criterios.md, write three criteria you have used (or seen) to say that a task is finished. Next to each one, put its level from 0 to 4 and, on a line that starts with <code>nível 3</code>, the rewritten version.",
-          "pronto": "<code>grep -c 'nível 3' criterios.md</code> → <code>3</code>, and <code>grep -ciE '\\b(bom|limpo|adequado|completo)\\b' criterios.md</code> only finds words in the lines of the original criteria, never in the rewritten ones."
+          "texto": "In criterios.md, write three criteria you have already used (or seen) to say that a task was finished. Next to each one, put the level from 0 to 4 and, on a line that starts with <code>nível 3</code>, the rewritten version. Write the marker <code>nível 3</code> exactly like this, in Portuguese: it is what the grep counts.",
+          "pronto": "<code>grep -c 'nível 3' criterios.md</code> → <code>3</code>, and <code>grep -ciE '\\b(good|clean|adequate|complete|proper)\\b' criterios.md</code> only finds words in the lines of the original criteria, never in the rewritten ones."
         },
         {
           "id": "e2",
@@ -281,12 +281,12 @@
         },
         {
           "t": "Track course 1: verification and evals (level 4, separate evaluator)",
-          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/en/",
           "icone": "check"
         },
         {
           "t": "Track course 2: writing the complete level 3+ goal.md",
-          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/en/",
           "icone": "alvo"
         }
       ]

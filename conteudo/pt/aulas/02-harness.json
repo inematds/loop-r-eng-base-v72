@@ -135,9 +135,9 @@
           "conteudo": "claude mcp list\nls ~/.claude/skills 2>/dev/null | wc -l"
         },
         {
-          "rot": "Terminal · permissões e hooks do Claude Code",
+          "rot": "Terminal · permissões e hooks do Claude Code (usuário e projeto; rode na pasta do projeto)",
           "icone": "cadeado",
-          "conteudo": "python3 - <<'PY'\nimport json, pathlib\np = pathlib.Path.home() / \".claude/settings.json\"\nd = json.loads(p.read_text()) if p.exists() else {}\nprint(\"hooks:\", sorted(d.get(\"hooks\", {})) or \"nenhum\")\nprint(\"allow:\", len(d.get(\"permissions\", {}).get(\"allow\", [])), \"regras\")\nprint(\"deny:\", len(d.get(\"permissions\", {}).get(\"deny\", [])), \"regras\")\nPY"
+          "conteudo": "python3 - <<'PY'\nimport json, pathlib\nfor p in (pathlib.Path.home() / \".claude/settings.json\",   # usuário\n          pathlib.Path(\".claude/settings.json\"),            # projeto (vai para o git)\n          pathlib.Path(\".claude/settings.local.json\")):     # projeto, só nesta máquina\n    if not p.exists():\n        print(f\"{p}: não existe\")\n        continue\n    d = json.loads(p.read_text())\n    perm = d.get(\"permissions\", {})\n    print(f\"{p}: hooks {sorted(d.get('hooks', {})) or 'nenhum'} · allow {len(perm.get('allow', []))} · deny {len(perm.get('deny', []))}\")\nPY"
         },
         {
           "rot": "Terminal · sandbox e aprovação do Codex",
@@ -166,7 +166,7 @@
           "id": "e1",
           "titulo": "E1 · Inventário",
           "min": "15 min",
-          "texto": "Rode os quatro blocos do inventário e preencha o harness.md com o que apareceu, uma linha por peça.",
+          "texto": "Rode os quatro blocos do inventário e preencha o harness.md com o que apareceu, uma linha por peça. Escreva as marcas do começo da linha exatamente como estão no modelo: o grep do \"pronto quando\" procura por elas.",
           "pronto": "<code>grep -cE '^(contexto|memória|ferramentas|verificação|permissões):' harness.md</code> → <code>5</code>, e <code>grep -c '&lt;' harness.md</code> → <code>0</code> (nenhum marcador do modelo ficou sem preencher)."
         },
         {

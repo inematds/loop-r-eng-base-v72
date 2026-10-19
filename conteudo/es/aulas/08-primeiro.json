@@ -103,7 +103,7 @@
         {
           "rot": "Claude Code · la condición del /goal (nivel 3, con tope)",
           "icone": "alvo",
-          "conteudo": "/goal python3 -m pytest -q -p no:cacheprovider tests/ imprime 6 passed, sha256sum -c tests.sha256 imprime OK e git diff --exit-code -- tests/ sai com código 0, com as três saídas impressas na conversa, ou pare depois de 8 turnos"
+          "conteudo": "/goal python3 -m pytest -q -p no:cacheprovider tests/ imprime 6 passed, sha256sum -c tests.sha256 imprime OK y git diff --exit-code -- tests/ sale con código 0, con las tres salidas impresas en la conversación, o detente después de 8 turnos"
         },
         {
           "rot": "Terminal · tú lo verificas, sin creer en el resumen",
@@ -295,27 +295,27 @@
       "links": [
         {
           "t": "Siguiente: curso 1 de la formación, verificación y evals",
-          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/es/",
           "icone": "check"
         },
         {
           "t": "Curso 2: ejecución larga",
-          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/es/",
           "icone": "relogio"
         },
         {
           "t": "Curso 3: multiagente y orquestación",
-          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/es/",
           "icone": "robo"
         },
         {
           "t": "Curso 4: seguridad del loop autónomo",
-          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/es/",
           "icone": "escudo"
         },
         {
           "t": "Curso 5: el loop que aprende",
-          "href": "https://inematds.github.io/loop-r-eng-aprende-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-aprende-v72/es/",
           "icone": "grafico"
         },
         {

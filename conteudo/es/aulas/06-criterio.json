@@ -65,7 +65,7 @@
         {
           "icone": "terminal",
           "titulo": "2 · burlable",
-          "sub": "\"0 falhas\", \"20 páginas\"",
+          "sub": "\"0 fallos\", \"20 páginas\"",
           "itens": [
             {
               "icone": "cadeado",
@@ -116,7 +116,7 @@
         {
           "rot": "templates/goal.md · escala e perguntas",
           "icone": "arquivo",
-          "conteudo": "ESCALA (apagar ao preencher)\n  0 vago ......... \"deixar bom\", \"melhorar\"                    → reescrever\n  1 subjetivo .... \"revisado e limpo\" (o agente se autoaprova)  → reescrever\n  2 burlável ..... \"0 falhas\", \"20 páginas\" (apaga teste, página vazia) → pôr trava\n  3 protegido .... comando + trava (contagem mínima, arquivo congelado/hash, validador do conteúdo) → mínimo aceito\n  4 independente . nível 3 + checagem externa (e2e real, avaliador separado, amostra humana) → quando o erro custa caro\n\n5 PERGUNTAS — cada \"não\" derruba o nível\n  1. Dá para checar com um comando?\n  2. A resposta é sim/não (sem \"melhorou\")?\n  3. É impossível cumprir sem fazer o trabalho?\n  4. A prova aparece na saída? (o avaliador do /goal no Claude só lê a conversa)\n  5. Função + regressão + limite estão cobertos?\n\nSINAIS DE CRITÉRIO RUIM: \"bom/limpo/adequado/completo\"; depende do agente dizer que terminou;\nsó contagem sem checar conteúdo; não diz o que NÃO pode mudar; verificação leva horas."
+          "conteudo": "ESCALA (borrar al completar)\n  0 vago ......... \"dejarlo bien\", \"mejorar\"                  → reescribir\n  1 subjetivo .... \"revisado y limpio\" (el agente se autoaprueba)  → reescribir\n  2 burlable ..... \"0 fallos\", \"20 páginas\" (borra el test, página vacía) → poner traba\n  3 protegido .... comando + traba (conteo mínimo, archivo congelado/hash, validador del contenido) → mínimo aceptado\n  4 independiente . nivel 3 + chequeo externo (e2e real, evaluador separado, muestra humana) → cuando el error cuesta caro\n\n5 PREGUNTAS — cada \"no\" baja el nivel\n  1. ¿Se puede chequear con un comando?\n  2. ¿La respuesta es sí/no (sin \"mejoró\")?\n  3. ¿Es imposible cumplirlo sin hacer el trabajo?\n  4. ¿La prueba aparece en la salida? (el evaluador del /goal en Claude solo lee la conversación)\n  5. ¿Están cubiertos función + regresión + límite?\n\nSEÑALES DE UN CRITERIO MALO: \"bueno/limpio/adecuado/completo\"; depende de que el agente diga que terminó;\nsolo conteo sin chequear el contenido; no dice qué NO puede cambiar; la verificación tarda horas."
         },
         {
           "rot": "Criterio nivel 3 · las tres capas",
@@ -134,7 +134,7 @@
           "titulo": "0 → 1",
           "sub": "dar un objetivo",
           "texto": [
-            "\"Melhorar a função de contar palavras\" se vuelve \"a função conta palavras corretamente\".",
+            "\"Mejorar la función que cuenta palabras\" se vuelve \"la función cuenta las palabras correctamente\".",
             "Todavía es opinión: ¿quién dice \"correctamente\"?"
           ]
         },
@@ -177,8 +177,8 @@
           "id": "e1",
           "titulo": "E1 · Clasificar y reescribir",
           "min": "15 min",
-          "texto": "Escribe en criterios.md tres criterios que ya usaste (o viste) para decir que una tarea terminó. Al lado de cada uno, el nivel de 0 a 4 y, en una línea que empiece por <code>nível 3</code>, la versión reescrita.",
-          "pronto": "<code>grep -c 'nível 3' criterios.md</code> → <code>3</code>, y <code>grep -ciE '\\b(bom|limpo|adequado|completo)\\b' criterios.md</code> solo encuentra palabras en las líneas de los criterios originales, nunca en las reescritas."
+          "texto": "Escribe en criterios.md tres criterios que ya usaste (o viste) para decir que una tarea terminó. Al lado de cada uno, el nivel de 0 a 4 y, en una línea que empieza con <code>nível 3</code>, la versión reescrita. Escribe la marca <code>nível 3</code> exactamente así, en portugués: es la que cuenta el grep.",
+          "pronto": "<code>grep -c 'nível 3' criterios.md</code> → <code>3</code>, y <code>grep -ciE '\\b(bueno|buena|limpio|adecuado|completo)\\b' criterios.md</code> solo encuentra palabras en las líneas de los criterios originales, nunca en las reescritas."
         },
         {
           "id": "e2",
@@ -281,12 +281,12 @@
         },
         {
           "t": "Curso 1 de la formación: verificación y evals (nivel 4, evaluador separado)",
-          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/es/",
           "icone": "check"
         },
         {
           "t": "Curso 2 de la formación: escribir el goal.md nivel 3+ completo",
-          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/es/",
           "icone": "alvo"
         }
       ]

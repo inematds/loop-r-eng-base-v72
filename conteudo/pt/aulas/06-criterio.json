@@ -147,7 +147,7 @@
           "id": "e1",
           "titulo": "E1 · Classificar e reescrever",
           "min": "15 min",
-          "texto": "Escreva em criterios.md três critérios que você já usou (ou viu) para dizer que uma tarefa acabou. Ao lado de cada um, o nível de 0 a 4 e, numa linha que começa com <code>nível 3</code>, a versão reescrita.",
+          "texto": "Escreva em criterios.md três critérios que você já usou (ou viu) para dizer que uma tarefa acabou. Ao lado de cada um, o nível de 0 a 4 e, numa linha que começa com <code>nível 3</code>, a versão reescrita. Escreva a marca <code>nível 3</code> exatamente assim, em português: é ela que o grep conta.",
           "pronto": "<code>grep -c 'nível 3' criterios.md</code> → <code>3</code>, e <code>grep -ciE '\\b(bom|limpo|adequado|completo)\\b' criterios.md</code> só acha palavras nas linhas dos critérios originais, nunca nas reescritas."
         },
         {

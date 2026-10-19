@@ -187,7 +187,7 @@
           "id": "e3",
           "titulo": "E3 · Diagnóstico de um loop seu",
           "min": "15 min",
-          "texto": "Pegue o último pedido longo que você fez ao Claude Code ou ao Codex. Num arquivo pecas.md, escreva uma linha por peça, começando por <code>objetivo:</code>, <code>estado:</code>, <code>ação:</code>, <code>verificação:</code> e <code>parada:</code>, dizendo o que fazia esse papel, ou <code>faltou</code>.",
+          "texto": "Pegue o último pedido longo que você fez ao Claude Code ou ao Codex. Num arquivo pecas.md, escreva uma linha por peça, começando por <code>objetivo:</code>, <code>estado:</code>, <code>ação:</code>, <code>verificação:</code> e <code>parada:</code>, dizendo o que fazia esse papel, ou <code>faltou</code>. Escreva as marcas exatamente assim, em português: o grep do \"pronto quando\" procura por elas.",
           "pronto": "<code>grep -ciE '^(objetivo|estado|ação|verificação|parada):' pecas.md</code> → <code>5</code>, e pelo menos uma linha diz \"faltou\" ou aponta um comando de verdade."
         }
       ]

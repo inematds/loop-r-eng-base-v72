@@ -105,7 +105,7 @@
         {
           "icone": "portao",
           "titulo": "Parada",
-          "sub": "cuándo salir del laço",
+          "sub": "cuándo salir del loop",
           "itens": [
             {
               "icone": "check",
@@ -120,7 +120,7 @@
         }
       ],
       "volta": "¿No terminó y ningún tope se alcanzó? Relee el estado y empieza otro ciclo.",
-      "legenda": "Vale para un laço de shell, para el /goal de Claude Code, para el codex exec dentro de un script y para los nueve agentes del LOOP-R.",
+      "legenda": "Vale para un loop de shell, para el /goal de Claude Code, para el codex exec dentro de un script y para los nueve agentes del LOOP-R.",
       "rolagem": true,
       "rolagem_fim": {
         "titulo": "Cinco preguntas por ciclo",
@@ -232,7 +232,7 @@
           "id": "e3",
           "titulo": "E3 · Diagnóstico de un loop tuyo",
           "min": "15 min",
-          "texto": "Toma el último pedido largo que le hiciste a Claude Code o a Codex. En un archivo pecas.md, escribe una línea por pieza, empezando por <code>objetivo:</code>, <code>estado:</code>, <code>ação:</code>, <code>verificação:</code> y <code>parada:</code>, diciendo qué cumplía ese papel, o <code>faltou</code>.",
+          "texto": "Toma el último pedido largo que le hiciste a Claude Code o a Codex. En un archivo pecas.md, escribe una línea por pieza, empezando por <code>objetivo:</code>, <code>estado:</code>, <code>ação:</code>, <code>verificação:</code> y <code>parada:</code>, diciendo qué cumplía ese papel, o <code>faltou</code>. Escribe las marcas exactamente así, en portugués: el grep del \"listo cuando\" las busca.",
           "pronto": "<code>grep -ciE '^(objetivo|estado|ação|verificação|parada):' pecas.md</code> → <code>5</code>, y al menos una línea dice \"faltou\" o apunta a un comando de verdad."
         }
       ]
@@ -327,7 +327,7 @@
         },
         {
           "t": "Curso 1 de la formación: verificación y evals",
-          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/es/",
           "icone": "check"
         }
       ]

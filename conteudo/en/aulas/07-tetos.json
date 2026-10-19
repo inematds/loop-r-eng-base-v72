@@ -44,7 +44,7 @@
           "itens": [
             {
               "icone": "alvo",
-              "t": "/goal: \"ou pare depois de 20 turnos\""
+              "t": "/goal: \"or stop after 20 turns\""
             },
             {
               "icone": "terminal",
@@ -60,7 +60,7 @@
           "itens": [
             {
               "icone": "terminal",
-              "t": "timeout 20m [comando]"
+              "t": "timeout 20m [command]"
             },
             {
               "icone": "x",
@@ -413,12 +413,12 @@
         },
         {
           "t": "Course 2 of the track: headless loop with flock, timeout, and MemoryMax",
-          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/en/",
           "icone": "terminal"
         },
         {
           "t": "Course 4 of the track: safety for the autonomous loop",
-          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/en/",
           "icone": "escudo"
         }
       ]

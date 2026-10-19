@@ -99,48 +99,42 @@
           "rot": "Course 0 · you are here",
           "t": "Base: anatomy of the loop",
           "l": "The five parts, the harness, loop engines, LOOP-R, done criterion from 0 to 4, and caps.",
-          "href": "https://inematds.github.io/loop-r-eng-base-v72/",
-          "href_idioma": true,
+          "href": "https://inematds.github.io/loop-r-eng-base-v72/en/",
           "img": "assets/img/cursos/base.jpg"
         },
         {
           "rot": "Course 1",
           "t": "Verification and evals",
           "l": "A separate, skeptical evaluator, frozen tests, reward hacking, the gold set, and a calibrated judge.",
-          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/",
-          "href_idioma": true,
+          "href": "https://inematds.github.io/loop-r-eng-verificacao-v72/en/",
           "img": "assets/img/cursos/verificacao.jpg"
         },
         {
           "rot": "Course 2",
           "t": "Long-running execution",
           "l": "The seven-file kit, goal.md level 3+, context in bands, handoff, headless loop, and measurement.",
-          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/",
-          "href_idioma": true,
+          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/en/",
           "img": "assets/img/cursos/execucao-longa.jpg"
         },
         {
           "rot": "Course 3",
           "t": "Multi-agent and orchestration",
           "l": "When not to use it, subagents, generator × evaluator, worktrees, queues, and the Claude + Codex team.",
-          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/",
-          "href_idioma": true,
+          "href": "https://inematds.github.io/loop-r-eng-multiagente-v72/en/",
           "img": "assets/img/cursos/multiagente.jpg"
         },
         {
           "rot": "Course 4",
           "t": "Security for the autonomous loop",
           "l": "Lethal trifecta, Rule of Two, injection through the content it reads, guard hooks and sandbox.",
-          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/",
-          "href_idioma": true,
+          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/en/",
           "img": "assets/img/cursos/seguranca.jpg"
         },
         {
           "rot": "Course 5",
           "t": "The loop that learns",
           "l": "Hypothesis with a number, experiment, promotion and rollback, lessons, and the risk of optimizing against the meter.",
-          "href": "https://inematds.github.io/loop-r-eng-aprende-v72/",
-          "href_idioma": true,
+          "href": "https://inematds.github.io/loop-r-eng-aprende-v72/en/",
           "img": "assets/img/cursos/aprende.jpg"
         }
       ]

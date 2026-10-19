@@ -183,9 +183,9 @@
           "conteudo": "claude mcp list\nls ~/.claude/skills 2>/dev/null | wc -l"
         },
         {
-          "rot": "Terminal · Claude Code permissions and hooks",
+          "rot": "Terminal · Claude Code permissions and hooks (user and project; run in the project folder)",
           "icone": "cadeado",
-          "conteudo": "python3 - <<'PY'\nimport json, pathlib\np = pathlib.Path.home() / \".claude/settings.json\"\nd = json.loads(p.read_text()) if p.exists() else {}\nprint(\"hooks:\", sorted(d.get(\"hooks\", {})) or \"nenhum\")\nprint(\"allow:\", len(d.get(\"permissions\", {}).get(\"allow\", [])), \"regras\")\nprint(\"deny:\", len(d.get(\"permissions\", {}).get(\"deny\", [])), \"regras\")\nPY"
+          "conteudo": "python3 - <<'PY'\nimport json, pathlib\nfor p in (pathlib.Path.home() / \".claude/settings.json\",   # user\n          pathlib.Path(\".claude/settings.json\"),            # project (goes to git)\n          pathlib.Path(\".claude/settings.local.json\")):     # project, only on this machine\n    if not p.exists():\n        print(f\"{p}: não existe\")\n        continue\n    d = json.loads(p.read_text())\n    perm = d.get(\"permissions\", {})\n    print(f\"{p}: hooks {sorted(d.get('hooks', {})) or 'nenhum'} · allow {len(perm.get('allow', []))} · deny {len(perm.get('deny', []))}\")\nPY"
         },
         {
           "rot": "Terminal · Codex sandbox and approval",
@@ -214,7 +214,7 @@
           "id": "e1",
           "titulo": "E1 · Inventory",
           "min": "15 min",
-          "texto": "Run the four inventory blocks and fill in harness.md with what showed up, one line per piece.",
+          "texto": "Run the four inventory blocks and fill in harness.md with what showed up, one line per piece. Write the markers at the start of each line exactly as they appear in the template: the \"done when\" grep looks for them.",
           "pronto": "<code>grep -cE '^(contexto|memória|ferramentas|verificação|permissões):' harness.md</code> → <code>5</code>, and <code>grep -c '&lt;' harness.md</code> → <code>0</code> (no template placeholder was left unfilled)."
         },
         {

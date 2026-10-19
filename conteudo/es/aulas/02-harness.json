@@ -183,9 +183,9 @@
           "conteudo": "claude mcp list\nls ~/.claude/skills 2>/dev/null | wc -l"
         },
         {
-          "rot": "Terminal · permisos y hooks de Claude Code",
+          "rot": "Terminal · permisos y hooks de Claude Code (usuario y proyecto; ejecútalo en la carpeta del proyecto)",
           "icone": "cadeado",
-          "conteudo": "python3 - <<'PY'\nimport json, pathlib\np = pathlib.Path.home() / \".claude/settings.json\"\nd = json.loads(p.read_text()) if p.exists() else {}\nprint(\"hooks:\", sorted(d.get(\"hooks\", {})) or \"nenhum\")\nprint(\"allow:\", len(d.get(\"permissions\", {}).get(\"allow\", [])), \"regras\")\nprint(\"deny:\", len(d.get(\"permissions\", {}).get(\"deny\", [])), \"regras\")\nPY"
+          "conteudo": "python3 - <<'PY'\nimport json, pathlib\nfor p in (pathlib.Path.home() / \".claude/settings.json\",   # usuario\n          pathlib.Path(\".claude/settings.json\"),            # proyecto (va al git)\n          pathlib.Path(\".claude/settings.local.json\")):     # proyecto, solo en esta máquina\n    if not p.exists():\n        print(f\"{p}: não existe\")\n        continue\n    d = json.loads(p.read_text())\n    perm = d.get(\"permissions\", {})\n    print(f\"{p}: hooks {sorted(d.get('hooks', {})) or 'nenhum'} · allow {len(perm.get('allow', []))} · deny {len(perm.get('deny', []))}\")\nPY"
         },
         {
           "rot": "Terminal · sandbox y aprobación de Codex",
@@ -195,7 +195,7 @@
         {
           "rot": "harness.md · modelo para completar",
           "icone": "caneta",
-          "conteudo": "# Meu harness — <data>\ncontexto: <arquivos de regras que o agente lê ao começar>\nmemória: <como guardo o que não pode se perder: handoff, arquivos de estado, nada>\nferramentas: <MCP e skills que uso de verdade>\nverificação: <o comando que prova que deu certo no meu projeto principal>\npermissões: <hooks e regras allow/deny; sandbox do Codex>\npeça mais fraca: <qual e por quê>"
+          "conteudo": "# Mi harness — <fecha>\ncontexto: <archivos de reglas que el agente lee al empezar>\nmemória: <cómo guardo lo que no se puede perder: handoff, archivos de estado, nada>\nferramentas: <MCP y skills que uso de verdad>\nverificação: <el comando que prueba que salió bien en mi proyecto principal>\npermissões: <hooks y reglas allow/deny; sandbox de Codex>\npeça mais fraca: <cuál y por qué>"
         }
       ]
     },
@@ -214,7 +214,7 @@
           "id": "e1",
           "titulo": "E1 · Inventario",
           "min": "15 min",
-          "texto": "Ejecuta los cuatro bloques del inventario y completa el harness.md con lo que apareció, una línea por pieza.",
+          "texto": "Ejecuta los cuatro bloques del inventario y completa el harness.md con lo que apareció, una línea por pieza. Escribe las marcas del comienzo de la línea exactamente como están en el modelo: el grep del \"listo cuando\" las busca.",
           "pronto": "<code>grep -cE '^(contexto|memória|ferramentas|verificação|permissões):' harness.md</code> → <code>5</code>, y <code>grep -c '&lt;' harness.md</code> → <code>0</code> (ningún marcador de la plantilla quedó sin completar)."
         },
         {

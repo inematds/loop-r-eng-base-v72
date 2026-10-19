@@ -44,14 +44,14 @@
           "itens": [
             {
               "icone": "alvo",
-              "t": "/goal: \"ou pare depois de 20 turnos\""
+              "t": "/goal: \"o detente después de 20 turnos\""
             },
             {
               "icone": "terminal",
-              "t": "MAX_CICLOS en tu laço"
+              "t": "MAX_CICLOS en tu loop"
             }
           ],
-          "detalhe": "La doc de /goal manda incluir un tope en la propia condición, como \"ou pare depois de 20 turnos\"; y Claude Code ya detiene el goal si el agente responde varios turnos seguidos sin usar herramientas. En tu laço, es una variable: MAX_CICLOS. El /loop tiene el suyo: una tarea recurrente expira en 7 días."
+          "detalhe": "La doc de /goal manda incluir un tope en la propia condición, como \"o detente después de 20 turnos\"; y Claude Code ya detiene el goal si el agente responde varios turnos seguidos sin usar herramientas. En tu loop, es una variable: MAX_CICLOS. El /loop tiene el suyo: una tarea recurrente expira en 7 días."
         },
         {
           "icone": "relogio",
@@ -67,7 +67,7 @@
               "t": "Sale con código 124"
             }
           ],
-          "detalhe": "Un ciclo que se trabó (esperando entrada, en un laço infinito, en un servidor que no levanta) retiene todo el loop. El timeout de coreutils mata el comando después del plazo y devuelve 124, y el laço lo trata como ciclo fallido."
+          "detalhe": "Un ciclo que se trabó (esperando entrada, en un bucle infinito, en un servidor que no levanta) retiene todo el loop. El timeout de coreutils mata el comando después del plazo y devuelve 124, y el loop lo trata como ciclo fallido."
         },
         {
           "icone": "chip",
@@ -151,7 +151,7 @@
         {
           "rot": "/goal · tope de turnos en la propia condición",
           "icone": "alvo",
-          "conteudo": "/goal python3 -m pytest -q tests/ imprime 48 passed e git diff --stat -- tests/ sai vazio, ou pare depois de 20 turnos"
+          "conteudo": "/goal python3 -m pytest -q tests/ imprime 48 passed y git diff --stat -- tests/ sale vacío, o detente después de 20 turnos"
         }
       ],
       "saida": {
@@ -413,12 +413,12 @@
         },
         {
           "t": "Curso 2 de la formación: loop headless con flock, timeout y MemoryMax",
-          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-execucao-longa-v72/es/",
           "icone": "terminal"
         },
         {
           "t": "Curso 4 de la formación: seguridad del loop autónomo",
-          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/",
+          "href": "https://inematds.github.io/loop-r-eng-seguranca-v72/es/",
           "icone": "escudo"
         }
       ]
